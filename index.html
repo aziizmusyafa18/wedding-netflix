@@ -55,6 +55,10 @@
           <svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3.2"/><circle cx="16" cy="8" r="3.2"/><path d="M2.5 20c.6-3.2 3-5 5.5-5s4.9 1.8 5.5 5"/><path d="M10.5 20c.6-3.2 3-5 5.5-5s4.9 1.8 5.5 5"/></svg>
           <span>Mempelai</span>
         </a>
+        <a href="#events">
+          <svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>
+          <span>Acara</span>
+        </a>
         <a href="#story">
           <svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 0 0-7.1 7.1l1.7 1.7L12 21l7.1-6.6 1.7-1.7a5 5 0 0 0 0-7.1z"/></svg>
           <span>Kisah</span>
@@ -63,17 +67,13 @@
           <svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg>
           <span>Galeri</span>
         </a>
-        <a href="#events">
-          <svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>
-          <span>Acara</span>
+        <a href="#rsvp">
+          <svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v12H7l-3 3z"/><path d="m9 11 2 2 4-4"/></svg>
+          <span>RSVP</span>
         </a>
         <a href="#gift">
           <svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 12h18M12 8v13"/><path d="M12 8s-2.5-4-5-4a2.5 2.5 0 0 0 0 5h5z"/><path d="M12 8s2.5-4 5-4a2.5 2.5 0 0 1 0 5h-5z"/></svg>
           <span>Tanda Kasih</span>
-        </a>
-        <a href="#rsvp">
-          <svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v12H7l-3 3z"/><path d="m9 11 2 2 4-4"/></svg>
-          <span>RSVP</span>
         </a>
       </nav>
       <button id="musicToggle" class="music-btn" aria-label="Toggle musik">
@@ -253,34 +253,6 @@
       </div>
     </section>
 
-    <!-- TANDA KASIH -->
-    <section id="gift" class="gift-row">
-      <h3 class="row-title">Tanda Kasih</h3>
-      <p class="gift-intro">
-        Kehadiran Anda adalah hadiah terbesar bagi kami. Namun jika ingin memberi tanda kasih,
-        kami menyediakan beberapa opsi di bawah ini.
-      </p>
-      <div class="gift-list">
-        <article class="gift-card">
-          <p class="gift-bank">BCA</p>
-          <p class="gift-number" id="rek1">1234567890</p>
-          <p class="gift-owner">a.n. Rio Pratama</p>
-          <button class="btn-mini gift-copy" data-target="rek1">Salin Nomor</button>
-        </article>
-        <article class="gift-card">
-          <p class="gift-bank">Mandiri</p>
-          <p class="gift-number" id="rek2">0987654321</p>
-          <p class="gift-owner">a.n. Sari Anggraini</p>
-          <button class="btn-mini gift-copy" data-target="rek2">Salin Nomor</button>
-        </article>
-        <article class="gift-card">
-          <p class="gift-bank">Alamat Hadiah</p>
-          <p class="gift-address">Jl. Mawar No. 12, Jakarta Selatan</p>
-          <a class="btn-mini" target="_blank" href="https://maps.google.com/?q=Jl+Mawar+No+12+Jakarta+Selatan">Buka Maps</a>
-        </article>
-      </div>
-    </section>
-
     <!-- RSVP -->
     <section id="rsvp" class="rsvp-section">
       <h3 class="row-title">Konfirmasi Kehadiran</h3>
@@ -315,6 +287,34 @@
         <div id="wishesList" class="wishes-list">
           <p class="wishes-empty">Memuat ucapan...</p>
         </div>
+      </div>
+    </section>
+
+    <!-- TANDA KASIH -->
+    <section id="gift" class="gift-row">
+      <h3 class="row-title">Tanda Kasih</h3>
+      <p class="gift-intro">
+        Kehadiran Anda adalah hadiah terbesar bagi kami. Namun jika ingin memberi tanda kasih,
+        kami menyediakan beberapa opsi di bawah ini.
+      </p>
+      <div class="gift-list">
+        <article class="gift-card">
+          <p class="gift-bank">BCA</p>
+          <p class="gift-number" id="rek1">1234567890</p>
+          <p class="gift-owner">a.n. Rio Pratama</p>
+          <button class="btn-mini gift-copy" data-target="rek1">Salin Nomor</button>
+        </article>
+        <article class="gift-card">
+          <p class="gift-bank">Mandiri</p>
+          <p class="gift-number" id="rek2">0987654321</p>
+          <p class="gift-owner">a.n. Sari Anggraini</p>
+          <button class="btn-mini gift-copy" data-target="rek2">Salin Nomor</button>
+        </article>
+        <article class="gift-card">
+          <p class="gift-bank">Alamat Hadiah</p>
+          <p class="gift-address">Jl. Mawar No. 12, Jakarta Selatan</p>
+          <a class="btn-mini" target="_blank" href="https://maps.google.com/?q=Jl+Mawar+No+12+Jakarta+Selatan">Buka Maps</a>
+        </article>
       </div>
     </section>
 
