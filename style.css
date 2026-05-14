@@ -31,6 +31,57 @@ body {
   display: none !important;
 }
 
+/* ============ SCROLL REVEAL ============ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition:
+    opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, transform;
+}
+.reveal.reveal-left {
+  transform: translateX(-50px) scale(0.98);
+}
+.reveal.reveal-right {
+  transform: translateX(50px) scale(0.98);
+}
+.reveal.reveal-zoom {
+  transform: scale(0.85);
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(30px) scale(0.97);
+  transition:
+    opacity 0.6s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal-stagger.in-view > * {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+.reveal-stagger.in-view > *:nth-child(1) { transition-delay: 0.05s; }
+.reveal-stagger.in-view > *:nth-child(2) { transition-delay: 0.15s; }
+.reveal-stagger.in-view > *:nth-child(3) { transition-delay: 0.25s; }
+.reveal-stagger.in-view > *:nth-child(4) { transition-delay: 0.35s; }
+.reveal-stagger.in-view > *:nth-child(5) { transition-delay: 0.45s; }
+.reveal-stagger.in-view > *:nth-child(6) { transition-delay: 0.55s; }
+.reveal-stagger.in-view > *:nth-child(7) { transition-delay: 0.65s; }
+.reveal-stagger.in-view > *:nth-child(8) { transition-delay: 0.75s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 /* ============ SPLASH "N" ============ */
 .splash {
   position: fixed;
@@ -43,32 +94,42 @@ body {
 }
 .n-logo {
   position: relative;
-  width: 135px;
-  height: 160px;
+  width: 280px;
+  height: 300px;
   display: grid;
   place-items: center;
 }
 .n-letter {
   font-family: "Bebas Neue", sans-serif;
   font-size: 180px;
+  font-weight: 700;
   color: var(--netflix-red);
   line-height: 1;
   letter-spacing: -8px;
+  text-shadow: 0 0 14px rgba(229, 9, 20, 0.25);
   opacity: 0;
   animation:
     nFadeIn 0.6s ease 0.2s forwards,
     nPulse 1.6s ease 1s forwards;
 }
+.n-img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 26px rgba(229, 9, 20, 0.55));
+}
 .n-bar {
   position: absolute;
-  width: 14px;
-  height: 160px;
+  width: 18px;
+  height: 300px;
   background: linear-gradient(180deg, #e50914 0%, #7a0008 100%);
+  top: 0;
   bottom: 0;
+  margin: auto 0;
   transform: scaleY(0);
   transform-origin: 50% 100%;
-  box-shadow: 0 0 18px rgba(229, 9, 20, 0.45);
-  border-radius: 1px;
+  box-shadow: 0 0 26px rgba(229, 9, 20, 0.55);
+  border-radius: 2px;
 }
 .n-bar-left {
   left: 0;
@@ -120,12 +181,33 @@ body {
 .cover-bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse at top, rgba(229, 9, 20, 0.25), transparent 60%),
-    linear-gradient(180deg, #000 0%, #1a0000 50%, #000 100%);
+  overflow: hidden;
+  background: #000;
   z-index: -1;
 }
+.cover-bg::before {
+  content: "";
+  position: absolute;
+  inset: -5%;
+  background: url("assets/netflixloginpage.jpg") center/cover no-repeat;
+  animation: bgDrift 30s ease-in-out infinite;
+}
+.cover-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.9) 100%),
+    linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.85) 100%);
+}
+@keyframes bgDrift {
+  0%   { transform: scale(1.05); }
+  50%  { transform: scale(1.12); }
+  100% { transform: scale(1.05); }
+}
 .cover-inner {
+  position: relative;
+  z-index: 1;
   max-width: 480px;
 }
 .cover-label {
@@ -245,16 +327,31 @@ body {
 }
 .topnav nav {
   display: flex;
-  gap: 18px;
+  gap: 22px;
+  align-items: center;
 }
 .topnav nav a {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
   color: var(--text-dim);
   text-decoration: none;
-  font-size: 14px;
-  transition: color 0.2s;
+  font-size: 11px;
+  letter-spacing: 1px;
+  line-height: 1;
+  transition: color 0.2s, transform 0.2s;
+}
+.topnav nav a .nav-ico {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  transition: stroke 0.2s;
 }
 .topnav nav a:hover {
-  color: #fff;
+  color: var(--netflix-red);
+  transform: translateY(-2px);
 }
 .music-btn {
   background: rgba(255, 255, 255, 0.1);
@@ -284,15 +381,16 @@ body {
   align-items: center;
   padding: 0 5vw;
   overflow: hidden;
+  isolation: isolate;
 }
 .hero-bg {
   position: absolute;
   inset: 0;
   background:
     linear-gradient(135deg, rgba(229, 9, 20, 0.3), transparent 50%),
-    url("assets/hero.jpg") center/cover no-repeat,
+    url("assets/bgutama.png") center/cover no-repeat,
     #1a0000;
-  z-index: -2;
+  z-index: 0;
 }
 .hero-fade {
   position: absolute;
@@ -300,14 +398,16 @@ body {
   background:
     linear-gradient(
       90deg,
-      rgba(0, 0, 0, 0.9) 0%,
-      rgba(0, 0, 0, 0.4) 60%,
+      rgba(0, 0, 0, 0.75) 0%,
+      rgba(0, 0, 0, 0.2) 55%,
       transparent 100%
     ),
-    linear-gradient(180deg, transparent 60%, #000 100%);
-  z-index: -1;
+    linear-gradient(180deg, transparent 65%, #000 100%);
+  z-index: 1;
 }
 .hero-content {
+  position: relative;
+  z-index: 2;
   max-width: 620px;
 }
 .badge {
@@ -428,10 +528,16 @@ body {
   position: relative;
 }
 .ep-akad {
-  background: linear-gradient(135deg, #4a0e0e, #1a0000);
+  background:
+    linear-gradient(135deg, rgba(74,14,14,0.55), rgba(26,0,0,0.55)),
+    url("assets/akad.jpg") center/cover no-repeat,
+    #1a0000;
 }
 .ep-resepsi {
-  background: linear-gradient(135deg, #b0060f, #4a0e0e);
+  background:
+    linear-gradient(135deg, rgba(176,6,15,0.4), rgba(74,14,14,0.45)),
+    url("assets/resepsi.jpg") center/cover no-repeat,
+    #4a0e0e;
 }
 .ep-num {
   font-family: "Bebas Neue", sans-serif;
@@ -491,6 +597,110 @@ body {
   font-size: 14px;
   max-width: 620px;
   margin: 0 auto;
+}
+
+/* ============ MEMPELAI / CAST ============ */
+.couple-row {
+  padding: 40px 0;
+}
+.couple-intro {
+  color: var(--text-dim);
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 620px;
+  margin: 0 5vw 22px;
+}
+.couple-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  padding: 0 5vw;
+}
+.couple-card {
+  background: var(--bg-2);
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.25s, border-color 0.25s;
+}
+.couple-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--netflix-red);
+}
+.couple-photo {
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+.couple-photo-groom {
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.4) 100%),
+    url("assets/pria.png") center/cover no-repeat,
+    #1a0000;
+}
+.couple-photo-bride {
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.4) 100%),
+    url("assets/wanita.jpg") center/cover no-repeat,
+    #1a0000;
+}
+.couple-photo-groom .couple-initial,
+.couple-photo-bride .couple-initial {
+  display: none;
+}
+.couple-initial {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(80px, 16vw, 120px);
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+}
+.couple-body {
+  padding: 20px;
+}
+.couple-role {
+  color: var(--netflix-red);
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 11px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.couple-name {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 26px;
+  letter-spacing: 1px;
+  color: var(--text);
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+.couple-desc {
+  color: var(--text-dim);
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+.couple-parents {
+  color: #e5e5e5;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+.couple-address {
+  color: #ccc;
+  font-size: 13px;
+  line-height: 1.6;
+  padding-top: 12px;
+  border-top: 1px solid #2a2a2a;
+}
+.couple-label-mini {
+  display: block;
+  color: var(--netflix-red);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
 }
 
 /* ============ LOVE STORY ============ */
@@ -570,12 +780,12 @@ body {
   border-color: var(--netflix-red);
   filter: grayscale(0);
 }
-.g-1 { background: linear-gradient(135deg, #4a0e0e, #1a0000); }
-.g-2 { background: linear-gradient(135deg, #b0060f, #4a0e0e); }
-.g-3 { background: linear-gradient(135deg, #2a0000, #000); }
-.g-4 { background: linear-gradient(135deg, #7a0008, #2a0000); }
-.g-5 { background: linear-gradient(135deg, #4a0e0e, #000); }
-.g-6 { background: linear-gradient(135deg, #b0060f, #1a0000); }
+.g-1 { background: url("assets/galery1.png") center/cover no-repeat, #1a0000; }
+.g-2 { background: url("assets/galery2.png") center/cover no-repeat, #1a0000; }
+.g-3 { background: url("assets/galery3.png") center/cover no-repeat, #1a0000; }
+.g-4 { background: url("assets/galery4.png") center/cover no-repeat, #1a0000; }
+.g-5 { background: url("assets/galery5.jpg") center/cover no-repeat, #1a0000; }
+.g-6 { background: url("assets/Gemini_Generated_Image_45gtff45gtff45gt.png") center/cover no-repeat, #1a0000; }
 
 /* ============ TANDA KASIH ============ */
 .gift-row {
@@ -816,7 +1026,7 @@ body {
   }
   .hero-fade {
     background:
-      linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 60%, #000 100%);
+      linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 60%, #000 100%);
   }
   .hero-content {
     max-width: 100%;
@@ -858,9 +1068,17 @@ body {
     display: none;
   }
   .topnav nav a {
-    font-size: 12px;
+    font-size: 10px;
     white-space: nowrap;
     flex-shrink: 0;
+    gap: 3px;
+  }
+  .topnav nav a .nav-ico {
+    width: 20px;
+    height: 20px;
+  }
+  .topnav nav {
+    gap: 14px;
   }
   .music-btn {
     width: 34px;
@@ -962,6 +1180,17 @@ body {
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
+  }
+
+  /* Mempelai */
+  .couple-list {
+    grid-template-columns: 1fr;
+  }
+  .couple-name {
+    font-size: 22px;
+  }
+  .couple-body {
+    padding: 18px;
   }
 
   /* Gift */

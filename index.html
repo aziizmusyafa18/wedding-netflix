@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#000000" />
   <title>The Wedding of Rio & Sari</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%23000'/><text x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial Black, Impact, sans-serif' font-size='52' font-weight='900' fill='%23e50914'>N</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Bebas+Neue&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -15,7 +16,7 @@
   <!-- 1. SPLASH "N" -->
   <section id="splash" class="splash">
     <div class="n-logo">
-      <span class="n-letter">N</span>
+      <img class="n-letter n-img" src="assets/logo.png" alt="Logo" />
       <div class="n-bar n-bar-left"></div>
       <div class="n-bar n-bar-right"></div>
     </div>
@@ -46,12 +47,34 @@
     <header class="topnav">
       <div class="brand">R&amp;S<span>WEDDING</span></div>
       <nav>
-        <a href="#hero">Beranda</a>
-        <a href="#story">Kisah</a>
-        <a href="#gallery">Galeri</a>
-        <a href="#events">Acara</a>
-        <a href="#gift">Tanda Kasih</a>
-        <a href="#rsvp">RSVP</a>
+        <a href="#hero">
+          <svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg>
+          <span>Beranda</span>
+        </a>
+        <a href="#couple">
+          <svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3.2"/><circle cx="16" cy="8" r="3.2"/><path d="M2.5 20c.6-3.2 3-5 5.5-5s4.9 1.8 5.5 5"/><path d="M10.5 20c.6-3.2 3-5 5.5-5s4.9 1.8 5.5 5"/></svg>
+          <span>Mempelai</span>
+        </a>
+        <a href="#story">
+          <svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 0 0-7.1 7.1l1.7 1.7L12 21l7.1-6.6 1.7-1.7a5 5 0 0 0 0-7.1z"/></svg>
+          <span>Kisah</span>
+        </a>
+        <a href="#gallery">
+          <svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg>
+          <span>Galeri</span>
+        </a>
+        <a href="#events">
+          <svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>
+          <span>Acara</span>
+        </a>
+        <a href="#gift">
+          <svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 12h18M12 8v13"/><path d="M12 8s-2.5-4-5-4a2.5 2.5 0 0 0 0 5h5z"/><path d="M12 8s2.5-4 5-4a2.5 2.5 0 0 1 0 5h-5z"/></svg>
+          <span>Tanda Kasih</span>
+        </a>
+        <a href="#rsvp">
+          <svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v12H7l-3 3z"/><path d="m9 11 2 2 4-4"/></svg>
+          <span>RSVP</span>
+        </a>
       </nav>
       <button id="musicToggle" class="music-btn" aria-label="Toggle musik">
         <span class="music-ico">♪</span>
@@ -95,6 +118,47 @@
         <p class="verse-translate">
           "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berfikir."
         </p>
+      </div>
+    </section>
+
+    <!-- MEMPELAI / CAST -->
+    <section id="couple" class="couple-row">
+      <h3 class="row-title">Mempelai</h3>
+      <p class="couple-intro">Dengan segala kerendahan hati, izinkan kami memperkenalkan kedua mempelai.</p>
+      <div class="couple-list">
+
+        <article class="couple-card">
+          <div class="couple-photo couple-photo-groom">
+            <span class="couple-initial">R</span>
+          </div>
+          <div class="couple-body">
+            <p class="couple-role">Mempelai Pria</p>
+            <h4 class="couple-name">Rio Pratama, S.T.</h4>
+            <p class="couple-desc">Putra dari pasangan:</p>
+            <p class="couple-parents">Bapak H. Ahmad Suryadi<br/>&amp; Ibu Hj. Siti Maryam</p>
+            <p class="couple-address">
+              <span class="couple-label-mini">Alamat</span>
+              Jl. Kenanga No. 8, Kec. Cilandak,<br/>Jakarta Selatan
+            </p>
+          </div>
+        </article>
+
+        <article class="couple-card">
+          <div class="couple-photo couple-photo-bride">
+            <span class="couple-initial">S</span>
+          </div>
+          <div class="couple-body">
+            <p class="couple-role">Mempelai Wanita</p>
+            <h4 class="couple-name">Sari Anggraini, S.Pd.</h4>
+            <p class="couple-desc">Putri dari pasangan:</p>
+            <p class="couple-parents">Bapak H. Budi Santoso<br/>&amp; Ibu Hj. Dewi Lestari</p>
+            <p class="couple-address">
+              <span class="couple-label-mini">Alamat</span>
+              Jl. Melati No. 21, Kec. Pasar Minggu,<br/>Jakarta Selatan
+            </p>
+          </div>
+        </article>
+
       </div>
     </section>
 
@@ -261,7 +325,7 @@
   </main>
 
   <!-- audio -->
-  <audio id="bgm" loop src="assets/music.mp3"></audio>
+  <audio id="bgm" loop src="assets/lagu.mp3"></audio>
 
   <script src="script.js"></script>
 </body>

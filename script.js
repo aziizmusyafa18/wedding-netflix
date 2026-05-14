@@ -50,6 +50,20 @@ musicBtn.addEventListener('click', () => {
   }
 });
 
+// Pause musik saat tab tidak aktif, lanjut otomatis saat tab kembali aktif
+let wasPlayingBeforeHidden = false;
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    wasPlayingBeforeHidden = !bgm.paused;
+    if (!bgm.paused) {
+      bgm.pause();
+      musicBtn.classList.remove('playing');
+    }
+  } else if (wasPlayingBeforeHidden) {
+    bgm.play().then(() => musicBtn.classList.add('playing')).catch(() => {});
+  }
+});
+
 // ====== COUNTDOWN ======
 const target = new Date(CONFIG.weddingDate).getTime();
 function tick() {
@@ -227,3 +241,51 @@ wishesList.addEventListener('click', async (e) => {
 });
 
 loadWishes();
+
+// ====== SCROLL REVEAL (Netflix-style) ======
+(function setupScrollReveal() {
+  const revealTargets = [
+    { sel: '.hero-content', cls: 'reveal' },
+    { sel: '.verse-card', cls: 'reveal reveal-zoom' },
+    { sel: '.couple-row .row-title', cls: 'reveal' },
+    { sel: '.couple-intro', cls: 'reveal' },
+    { sel: '.couple-list', cls: 'reveal-stagger' },
+    { sel: '.countdown-row .row-title', cls: 'reveal' },
+    { sel: '.countdown', cls: 'reveal-stagger' },
+    { sel: '.events-row .row-title', cls: 'reveal' },
+    { sel: '.episode-list', cls: 'reveal-stagger' },
+    { sel: '.story-row .row-title', cls: 'reveal' },
+    { sel: '.story-timeline', cls: 'reveal-stagger' },
+    { sel: '.gallery-row .row-title', cls: 'reveal' },
+    { sel: '.gallery-grid', cls: 'reveal-stagger' },
+    { sel: '.gift-row .row-title', cls: 'reveal' },
+    { sel: '.gift-intro', cls: 'reveal' },
+    { sel: '.gift-list', cls: 'reveal-stagger' },
+    { sel: '.rsvp-section .row-title', cls: 'reveal' },
+    { sel: '.rsvp-form', cls: 'reveal reveal-left' },
+    { sel: '.wishes-wrap', cls: 'reveal reveal-right' },
+    { sel: '.footer', cls: 'reveal' },
+  ];
+
+  revealTargets.forEach(({ sel, cls }) => {
+    document.querySelectorAll(sel).forEach((el) => {
+      cls.split(' ').forEach((c) => el.classList.add(c));
+    });
+  });
+
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach((el) => el.classList.add('in-view'));
+    return;
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach((el) => io.observe(el));
+})();
