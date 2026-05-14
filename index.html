@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <title>The Wedding of Rio & Sari</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Bebas+Neue&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- 1. SPLASH "N" -->
+  <section id="splash" class="splash">
+    <div class="n-logo">
+      <span class="n-letter">N</span>
+      <div class="n-bar n-bar-left"></div>
+      <div class="n-bar n-bar-right"></div>
+    </div>
+  </section>
+
+  <!-- 2. COVER -->
+  <section id="cover" class="cover hidden">
+    <div class="cover-bg"></div>
+    <div class="cover-inner">
+      <p class="cover-label">A NETFLIX ORIGINAL WEDDING</p>
+      <h1 class="cover-title">Rio &amp; Sari</h1>
+      <p class="cover-sub">Sebuah kisah cinta yang akan segera tayang.</p>
+      <div class="cover-guest">
+        <span>Kepada Yth.</span>
+        <strong id="guestName">Tamu Undangan</strong>
+      </div>
+      <button id="openBtn" class="btn-play">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Buka Undangan
+      </button>
+    </div>
+  </section>
+
+  <!-- 3. MAIN -->
+  <main id="main" class="main hidden">
+
+    <!-- TOP NAV -->
+    <header class="topnav">
+      <div class="brand">R&amp;S<span>WEDDING</span></div>
+      <nav>
+        <a href="#hero">Beranda</a>
+        <a href="#story">Kisah</a>
+        <a href="#gallery">Galeri</a>
+        <a href="#events">Acara</a>
+        <a href="#gift">Tanda Kasih</a>
+        <a href="#rsvp">RSVP</a>
+      </nav>
+      <button id="musicToggle" class="music-btn" aria-label="Toggle musik">
+        <span class="music-ico">♪</span>
+      </button>
+    </header>
+
+    <!-- HERO NOW PLAYING -->
+    <section id="hero" class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-fade"></div>
+      <div class="hero-content">
+        <p class="badge">▶ NOW PLAYING</p>
+        <h2 class="hero-title">The Wedding of<br/><span>Rio &amp; Sari</span></h2>
+        <div class="meta">
+          <span class="match">98% Match</span>
+          <span>2026</span>
+          <span class="tag">HD</span>
+          <span>Romance · Family</span>
+        </div>
+        <p class="hero-desc">
+          Dengan memohon rahmat Tuhan Yang Maha Esa, kami mengundang Bapak/Ibu/Saudara/i
+          untuk hadir dalam pernikahan kami.
+        </p>
+        <div class="hero-actions">
+          <a href="#events" class="btn-play">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            Lihat Acara
+          </a>
+          <a href="#rsvp" class="btn-secondary">+ RSVP</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- AYAT AR-RUM 21 -->
+    <section class="verse-row">
+      <div class="verse-card">
+        <p class="verse-label">Q.S. AR-RUM : 21</p>
+        <p class="verse-arabic" dir="rtl" lang="ar">
+          وَمِنْ اٰيٰتِهٖٓ اَنْ خَلَقَ لَكُمْ مِّنْ اَنْفُسِكُمْ اَزْوَاجًا لِّتَسْكُنُوْٓا اِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَّوَدَّةً وَّرَحْمَةً ۗ اِنَّ فِيْ ذٰلِكَ لَاٰيٰتٍ لِّقَوْمٍ يَّتَفَكَّرُوْنَ
+        </p>
+        <p class="verse-translate">
+          "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berfikir."
+        </p>
+      </div>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <section class="countdown-row">
+      <h3 class="row-title">Coming Soon</h3>
+      <div id="countdown" class="countdown">
+        <div><strong id="cd-d">00</strong><span>Hari</span></div>
+        <div><strong id="cd-h">00</strong><span>Jam</span></div>
+        <div><strong id="cd-m">00</strong><span>Menit</span></div>
+        <div><strong id="cd-s">00</strong><span>Detik</span></div>
+      </div>
+    </section>
+
+    <!-- EVENTS -->
+    <section id="events" class="events-row">
+      <h3 class="row-title">Episode</h3>
+      <div class="episode-list">
+
+        <article class="episode">
+          <div class="ep-thumb ep-akad">
+            <span class="ep-num">E1</span>
+          </div>
+          <div class="ep-body">
+            <h4>Akad Nikah</h4>
+            <p class="ep-meta">Sabtu · 15 Agustus 2026 · 08.00 WIB</p>
+            <p class="ep-desc">Masjid Al-Hikmah, Jl. Mawar No. 12, Jakarta Selatan.</p>
+            <a class="btn-mini" target="_blank" href="https://maps.google.com/?q=Masjid+Al-Hikmah+Jakarta">Buka Maps</a>
+          </div>
+        </article>
+
+        <article class="episode">
+          <div class="ep-thumb ep-resepsi">
+            <span class="ep-num">E2</span>
+          </div>
+          <div class="ep-body">
+            <h4>Resepsi</h4>
+            <p class="ep-meta">Sabtu · 15 Agustus 2026 · 11.00 - 14.00 WIB</p>
+            <p class="ep-desc">Ballroom Grand Melati, Jl. Melati No. 5, Jakarta Selatan.</p>
+            <a class="btn-mini" target="_blank" href="https://maps.google.com/?q=Grand+Melati+Jakarta">Buka Maps</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- LOVE STORY -->
+    <section id="story" class="story-row">
+      <h3 class="row-title">Our Story</h3>
+      <div class="story-timeline">
+        <article class="story-item">
+          <div class="story-year">2019</div>
+          <div class="story-body">
+            <h4>Pertemuan Pertama</h4>
+            <p>Bertemu di sebuah acara kampus. Awalnya hanya saling sapa, lalu pertemanan tumbuh perlahan tanpa diduga.</p>
+          </div>
+        </article>
+        <article class="story-item">
+          <div class="story-year">2021</div>
+          <div class="story-body">
+            <h4>Menjadi Sepasang</h4>
+            <p>Setelah dua tahun saling mengenal, kami memutuskan untuk menjalani hubungan dengan niat yang lebih serius.</p>
+          </div>
+        </article>
+        <article class="story-item">
+          <div class="story-year">2025</div>
+          <div class="story-body">
+            <h4>Lamaran</h4>
+            <p>Keluarga kedua belah pihak bertemu. Hari yang sederhana, namun penuh haru dan rasa syukur.</p>
+          </div>
+        </article>
+        <article class="story-item">
+          <div class="story-year">2026</div>
+          <div class="story-body">
+            <h4>Hari Bahagia</h4>
+            <p>Insya Allah, kami akan mengikat janji suci sebagai suami istri. Mohon doa restu dari Bapak/Ibu/Saudara/i.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="gallery-row">
+      <h3 class="row-title">Galeri</h3>
+      <div class="gallery-grid">
+        <div class="g-item g-1"></div>
+        <div class="g-item g-2"></div>
+        <div class="g-item g-3"></div>
+        <div class="g-item g-4"></div>
+        <div class="g-item g-5"></div>
+        <div class="g-item g-6"></div>
+      </div>
+    </section>
+
+    <!-- TANDA KASIH -->
+    <section id="gift" class="gift-row">
+      <h3 class="row-title">Tanda Kasih</h3>
+      <p class="gift-intro">
+        Kehadiran Anda adalah hadiah terbesar bagi kami. Namun jika ingin memberi tanda kasih,
+        kami menyediakan beberapa opsi di bawah ini.
+      </p>
+      <div class="gift-list">
+        <article class="gift-card">
+          <p class="gift-bank">BCA</p>
+          <p class="gift-number" id="rek1">1234567890</p>
+          <p class="gift-owner">a.n. Rio Pratama</p>
+          <button class="btn-mini gift-copy" data-target="rek1">Salin Nomor</button>
+        </article>
+        <article class="gift-card">
+          <p class="gift-bank">Mandiri</p>
+          <p class="gift-number" id="rek2">0987654321</p>
+          <p class="gift-owner">a.n. Sari Anggraini</p>
+          <button class="btn-mini gift-copy" data-target="rek2">Salin Nomor</button>
+        </article>
+        <article class="gift-card">
+          <p class="gift-bank">Alamat Hadiah</p>
+          <p class="gift-address">Jl. Mawar No. 12, Jakarta Selatan</p>
+          <a class="btn-mini" target="_blank" href="https://maps.google.com/?q=Jl+Mawar+No+12+Jakarta+Selatan">Buka Maps</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section id="rsvp" class="rsvp-section">
+      <h3 class="row-title">Konfirmasi Kehadiran</h3>
+      <form id="rsvpForm" class="rsvp-form">
+        <label>
+          Nama
+          <input type="text" name="nama" id="rsvpNama" required />
+        </label>
+        <label>
+          Kehadiran
+          <select name="kehadiran" required>
+            <option value="">-- Pilih --</option>
+            <option value="Hadir">Hadir</option>
+            <option value="Tidak Hadir">Tidak Hadir</option>
+            <option value="Masih Ragu">Masih Ragu</option>
+          </select>
+        </label>
+        <label>
+          Jumlah Tamu
+          <input type="number" name="jumlah" min="1" max="5" value="1" />
+        </label>
+        <label class="full">
+          Ucapan &amp; Doa
+          <textarea name="ucapan" rows="3" placeholder="Tulis pesan untuk mempelai..."></textarea>
+        </label>
+        <button type="submit" class="btn-play full">Kirim Konfirmasi</button>
+        <p id="rsvpStatus" class="rsvp-status"></p>
+      </form>
+
+      <div class="wishes-wrap">
+        <h4 class="wishes-title">Ucapan & Doa <span id="wishesCount">0</span></h4>
+        <div id="wishesList" class="wishes-list">
+          <p class="wishes-empty">Memuat ucapan...</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© 2026 Rio &amp; Sari · A Netflix Original Wedding</p>
+    </footer>
+
+  </main>
+
+  <!-- audio -->
+  <audio id="bgm" loop src="assets/music.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
