@@ -1220,6 +1220,23 @@ body {
   .wish-status {
     font-size: 10px;
   }
+
+  /* Splash: skala-kan keseluruhan logo + bar untuk layar HP */
+  .n-logo {
+    width: 200px;
+    height: 220px;
+  }
+  .n-letter {
+    font-size: 130px;
+  }
+  .n-img {
+    width: 140px;
+    height: 140px;
+  }
+  .n-bar {
+    width: 13px;
+    height: 220px;
+  }
 }
 
 /* Small phones */
